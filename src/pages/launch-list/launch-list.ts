@@ -32,7 +32,7 @@ export class LaunchListPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LaunchListPage');
   }
-  goToDetail(launch: ILaunch) {
+  goToDetail(launch: any) {
     this.navCtrl.push(LaunchDetailsPage, launch);
   }
 

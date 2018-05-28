@@ -26,7 +26,6 @@
     </ion-item>
 
   </ion-list> -->
-
   <ion-card *ngFor="let launch of launches">
       <img src="{{launch.links.mission_patch_small}}"  (click)="goToDetail(launch)"/>
       <ion-card-content>

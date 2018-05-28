@@ -16,13 +16,15 @@ import { ILaunch } from '../../app/Models/ILaunch';
 })
 export class LaunchDetailsPage {
 
-  launch: ILaunch;
+  public launch: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.launch = this.navParams.data;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LaunchDetailsPage');
     this.launch = this.navParams.data;
+    console.log(this.launch)
 
   }
   
