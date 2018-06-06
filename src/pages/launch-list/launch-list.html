@@ -9,7 +9,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Launches</ion-title>
+    <ion-title>Past launches</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -27,34 +27,28 @@
 
   </ion-list> -->
   <ion-card *ngFor="let launch of launches">
-      <img src="{{launch.links.mission_patch_small}}"  (click)="goToDetail(launch)"/>
+      <img src="{{launch?.links.mission_patch_small}}"  (click)="goToDetail(launch)"/>
       <ion-card-content>
         <ion-card-title>
-            {{launch.mission_name}}
+            {{launch?.mission_name}}
           </ion-card-title>
         <p>
-            {{launch.details}}
+            {{launch?.details}}
         </p>
       </ion-card-content>
 
       <ion-row no-padding>
           <ion-col>
-            <button ion-button clear small color="danger" icon-start>
-              <ion-icon name='star'></ion-icon>
-              Favorite
-            </button>
+            
           </ion-col>
           <ion-col text-center>
-            <button ion-button clear small color="danger" icon-start>
-              <ion-icon name='musical-notes'></ion-icon>
-              Listen
+            <button ion-button clear small color="primary" icon-start (click)="goToDetail(launch)"> 
+                <ion-icon name="menu"></ion-icon>
+              More infos
             </button>
           </ion-col>
           <ion-col text-right>
-            <button ion-button clear small color="danger" icon-start>
-              <ion-icon name='share-alt'></ion-icon>
-              Share
-            </button>
+
           </ion-col>
         </ion-row>
         

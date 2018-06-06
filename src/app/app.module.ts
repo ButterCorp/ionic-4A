@@ -10,9 +10,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LaunchListPage } from '../pages/launch-list/launch-list';
 import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { LaunchDetailsPage } from '../pages/launch-details/launch-details';
-import { LaunchDetailsPageModule } from '../pages/launch-details/launch-details.module';
+import { LaunchpadPage } from '../pages/launchpad/launchpad';
 
 @NgModule({
   declarations: [
@@ -20,11 +20,16 @@ import { LaunchDetailsPageModule } from '../pages/launch-details/launch-details.
     HomePage,
     ListPage,
     LaunchListPage,
-    LaunchDetailsPage
+    LaunchDetailsPage,
+    LaunchpadPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {}, {
+      links: [
+        { component: LaunchListPage, name: 'LaunchListPage', segment: 'launch-list' },
+      ]
+    }),
     HttpClientModule,
   ],
   bootstrap: [IonicApp],
@@ -33,7 +38,8 @@ import { LaunchDetailsPageModule } from '../pages/launch-details/launch-details.
     HomePage,
     ListPage,
     LaunchListPage,
-    LaunchDetailsPage
+    LaunchDetailsPage,
+    LaunchpadPage
   ],
   providers: [
     StatusBar,

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
+import { LaunchDetailsPage } from '../launch-details/launch-details';
+import { ILaunch } from '../../app/Models/ILaunch';
 
 @Component({
   selector: 'page-home',
@@ -7,8 +10,28 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  nextLaunch: ILaunch;
+  nextLaunches: ILaunch[];
 
+  constructor(
+    public navCtrl: NavController,
+    private spacexApi: SpacexApiProvider
+  ) {
+    this.getNextLaunch();
+    this.getNextLaunches();
   }
 
+  getNextLaunch(): void {
+    this.spacexApi.getNextLaunch()
+        .subscribe(data => { this.nextLaunch = data; });
+  }
+
+  getNextLaunches(): void {
+    this.spacexApi.getNextLaunches()
+        .subscribe( data => { this.nextLaunches = data; });
+  }
+
+  goToDetail(launch: ILaunch): void {
+    this.navCtrl.push(LaunchDetailsPage, launch);
+  }
 }
