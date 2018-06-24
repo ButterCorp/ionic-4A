@@ -7,6 +7,9 @@
 <ion-header>
 
   <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
     <ion-title>All launchpads</ion-title>
   </ion-navbar>
 
@@ -17,7 +20,7 @@
 
   <ion-card *ngFor="let launchpad of launchpads">
 
-      <img src="https://ionicframework.com/dist/preview-app/www/assets/img/advance-card-map-madison.png">
+      <img src="https://ionicframework.com/dist/preview-app/www/assets/img/advance-card-map-madison.png" (click)="goToLaunchpadDetail(launchpad)">
     
       <ion-item>
         <ion-icon name="pin" item-left large ></ion-icon>
@@ -26,7 +29,7 @@
       </ion-item>
     
       <ion-item>
-        <button ion-button icon-right clear item-end>
+        <button ion-button icon-right clear item-end (click)="goToLaunchpadDetail(launchpad)">
           More
           <ion-icon name="arrow-round-forward"></ion-icon>
         </button>

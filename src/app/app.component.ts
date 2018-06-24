@@ -4,9 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LaunchListPage } from '../pages/launch-list/launch-list';
-import { LaunchDetailsPage } from '../pages/launch-details/launch-details';
 import { LaunchpadPage } from '../pages/launchpad/launchpad';
 
 @Component({
@@ -26,7 +24,7 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Launches', component: LaunchListPage },
-      { title: 'Launchpad', component: LaunchpadPage }
+      { title: 'Launchpads', component: LaunchpadPage }
     ];
 
   }

@@ -13,6 +13,7 @@ import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
 import { HttpClientModule } from '@angular/common/http';
 import { LaunchDetailsPage } from '../pages/launch-details/launch-details';
 import { LaunchpadPage } from '../pages/launchpad/launchpad';
+import { LaunchpadDetailPage } from '../pages/launchpad-detail/launchpad-detail';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LaunchpadPage } from '../pages/launchpad/launchpad';
     ListPage,
     LaunchListPage,
     LaunchDetailsPage,
-    LaunchpadPage
+    LaunchpadPage,
+    LaunchpadDetailPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { LaunchpadPage } from '../pages/launchpad/launchpad';
     ListPage,
     LaunchListPage,
     LaunchDetailsPage,
-    LaunchpadPage
+    LaunchpadPage,
+    LaunchpadDetailPage
   ],
   providers: [
     StatusBar,
