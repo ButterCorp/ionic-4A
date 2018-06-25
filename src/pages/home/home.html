@@ -12,9 +12,7 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Creative-Tail-rocket.svg/2000px-Creative-Tail-rocket.svg.png" alt="rocket" width="100px">
   <h2>Next launch</h2>
   <ion-card (click)="goToDetail(nextLaunch)">
-      <ion-fab right top>
         <ion-badge right item-end>#{{nextLaunch?.flight_number}}</ion-badge>
-      </ion-fab>
     <ion-card-content>
       <ion-card-title>
           {{nextLaunch?.mission_name}}

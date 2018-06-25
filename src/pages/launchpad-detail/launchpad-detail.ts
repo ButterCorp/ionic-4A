@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ILaunch } from '../../app/Models/ILaunch';
 
 /**
- * Generated class for the LaunchDetailsPage page.
+ * Generated class for the LaunchpadDetailPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,22 +10,21 @@ import { ILaunch } from '../../app/Models/ILaunch';
 
 @IonicPage()
 @Component({
-  selector: 'page-launch-details',
-  templateUrl: 'launch-details.html',
+  selector: 'page-launchpad-detail',
+  templateUrl: 'launchpad-detail.html',
 })
-export class LaunchDetailsPage {
+export class LaunchpadDetailPage {
 
-  public launch: any;
+  public launchpad: any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams
   ) {
-    this.launch = this.navParams.data;
+    this.launchpad = this.navParams.data;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LaunchDetailsPage');
+    console.log('ionViewDidLoad LaunchpadDetailPage');
   }
-  
 
 }
