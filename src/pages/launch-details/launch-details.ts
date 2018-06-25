@@ -17,7 +17,10 @@ import { ILaunch } from '../../app/Models/ILaunch';
 export class LaunchDetailsPage {
 
   public launch: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams
+  ) {
     this.launch = this.navParams.data;
   }
 

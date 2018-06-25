@@ -3,15 +3,67 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>ButterLaunch</ion-title>
+    <ion-title>SpaceX</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <img src="https://images2.imgbox.com/f3/cd/Ub2z4QHa_o.png" alt="SpaceX">
-  <h3>Bienvenue</h3>
-  <h2>Notre prochain lancement</h2>
-  <p>
-    Falcon 9 - SES - 12
-  </p>
+  <button ion-button color="light" navPush="LaunchListPage">All pasts launchs</button> <br>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Creative-Tail-rocket.svg/2000px-Creative-Tail-rocket.svg.png" alt="rocket" width="100px">
+  <h2>Next launch</h2>
+  <ion-card (click)="goToDetail(nextLaunch)">
+        <ion-badge right item-end>#{{nextLaunch?.flight_number}}</ion-badge>
+    <ion-card-content>
+      <ion-card-title>
+          {{nextLaunch?.mission_name}}
+      </ion-card-title>
+      <p>
+          {{nextLaunch?.rocket.rocket_name}} - {{nextLaunch?.launch_date_local}}
+      </p>
+    </ion-card-content>
+
+    <ion-row no-padding>
+        <ion-col>
+
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button clear small color="primary" icon-start>
+              <ion-icon name="menu"></ion-icon>
+            More infos
+          </button>
+        </ion-col>
+        <ion-col text-right>
+
+        </ion-col>
+      </ion-row>
+  </ion-card>
+
+  <h2>Upcomming launches</h2>
+  <ion-card *ngFor="let launch of nextLaunches" (click)="goToDetail(launch)">
+      <ion-card-content>
+      <ion-badge item-end>#{{launch?.flight_number}}</ion-badge>
+        <ion-card-title>
+            {{launch?.mission_name}}
+        </ion-card-title>
+        <p>
+            {{launch?.rocket.rocket_name}} - {{launch?.launch_date_local}}
+        </p>
+      </ion-card-content>
+  
+      <ion-row no-padding>
+          <ion-col>
+
+          </ion-col>
+          <ion-col text-center>
+            <button ion-button clear small color="primary" icon-start>
+              <ion-icon name="menu"></ion-icon>
+              More infos
+            </button>
+          </ion-col>
+          <ion-col text-right>
+
+          </ion-col>
+        </ion-row>
+    </ion-card>
+
 </ion-content>

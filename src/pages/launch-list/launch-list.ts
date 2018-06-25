@@ -19,15 +19,19 @@ import { LaunchDetailsPage } from '../launch-details/launch-details';
 export class LaunchListPage {
   public launches: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private spacexApi: SpacexApiProvider) {
-    spacexApi.getAllLaunches(
-      {
-        order: 'desc', launch_year: 2018
-      }
-    ).subscribe(data => {
-      this.launches = data;
-    })
-  }
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private spacexApi: SpacexApiProvider
+  ) {
+      spacexApi.getAllLaunches(
+        {
+          order: 'desc', launch_year: 2018
+        }
+      ).subscribe(data => {
+        this.launches = data;
+      })
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LaunchListPage');
