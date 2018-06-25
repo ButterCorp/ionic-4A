@@ -49,5 +49,9 @@ export class SpacexApiProvider {
 
     return this.http.get<any[]>(endpointUrl);
   }
+  getRocket(rocketId: string): Observable<any> {
+    const endpointUrl = `${this.baseUrl}/rockets/${rocketId}`;
+    return this.http.get<any>(endpointUrl);
+  }
 
 }
