@@ -26,9 +26,6 @@ export class LaunchDetailsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LaunchDetailsPage');
-    this.launch = this.navParams.data;
-    console.log(this.launch)
-
   }
   
 
