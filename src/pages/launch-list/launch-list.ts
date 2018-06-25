@@ -18,7 +18,7 @@ import { LaunchDetailsPage } from '../launch-details/launch-details';
 })
 export class LaunchListPage {
   public launches: any;
-
+  public year: any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -26,12 +26,14 @@ export class LaunchListPage {
   ) {
       spacexApi.getAllLaunches(
         {
-          order: 'desc', launch_year: 2018
+          order: 'desc', launch_year: (navParams.data > 1900)?navParams.data:2018
         }
       ).subscribe(data => {
         this.launches = data;
       })
+      this.year = navParams.data;
     }
+    
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LaunchListPage');
