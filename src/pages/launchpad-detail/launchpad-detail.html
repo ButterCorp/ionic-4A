@@ -14,5 +14,33 @@
 
 
 <ion-content padding>
-  {{ launchpad | json }}
+
+  <h2 *ngIf="launchpad.full_name">{{launchpad.full_name}}</h2>
+
+  <ion-list>
+      <ion-item *ngIf="launchpad.status">
+          <p>{{launchpad.status}}</p>
+        <button ion-button outline item-end icon-left>
+            {{ (launchpad.status == 'active') ? 'Yes' : 'No' }}
+        </button>
+      </ion-item>
+
+      <ion-item *ngIf="launchpad.location">
+         Location
+          <button ion-button outline item-end icon-left>
+              {{launchpad.location.name}}$
+          </button>
+      </ion-item>
+
+      <ion-item *ngIf="launchpad.vehicles_launched">
+          Vehicles Launched
+          <div *ngFor="let vehicles of launchpad.vehicles_launched">
+              <button ion-button outline item-end icon-left>
+                  {{vehicles}}
+              </button>
+          </div>
+          
+      </ion-item>
+
+    </ion-list>
 </ion-content>

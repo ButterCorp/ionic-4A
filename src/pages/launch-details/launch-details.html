@@ -46,7 +46,7 @@
 
         <ion-item>
             Launch site
-            <button ion-button outline item-end icon-left>
+            <button ion-button outline item-end icon-left (click)="goToLaunchpad(launch.launch_site.site_id)">
                 {{launch.launch_site.site_name}}
             </button>
         </ion-item>
