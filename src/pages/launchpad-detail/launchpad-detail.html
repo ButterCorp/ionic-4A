@@ -13,6 +13,25 @@
 </ion-header>
 
 
-<ion-content padding>
-  {{ launchpad | json }}
+<ion-content class="card-background-page">
+
+  <ion-card>
+      <img src="http://www.spacex.com/sites/spacex/files/styles/launch_site-small/public/vandenberg.jpg?itok=wOTtZa11"/>
+      <div class="card-title">{{launchpad.full_name}}</div>
+  </ion-card>
+
+  <p style="padding: 20px">
+    {{ launchpad.details }}
+  </p>
+
+  <ion-list>
+      <ion-item *ngFor="let rocket_name of launchpad.vehicles_launched">
+        <ion-thumbnail item-start>
+          <img src="http://pngimg.com/uploads/futurama/futurama_PNG102.png">
+        </ion-thumbnail>
+        <h2>{{rocket_name}}</h2>
+        <button ion-button clear item-end>View</button>
+      </ion-item>
+    </ion-list>
+
 </ion-content>
