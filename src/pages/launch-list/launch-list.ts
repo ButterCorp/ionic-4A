@@ -17,8 +17,8 @@ import { LaunchDetailsPage } from '../launch-details/launch-details';
   templateUrl: 'launch-list.html',
 })
 export class LaunchListPage {
-  public launches: any;
-  public year: any;
+  private launches: any;
+  private year: any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -26,12 +26,16 @@ export class LaunchListPage {
   ) {
       spacexApi.getAllLaunches(
         {
-          order: 'desc', launch_year: (navParams.data > 1900)?navParams.data:2018
+          order: 'desc', launch_year: (typeof navParams.data == "string")?navParams.data:""
         }
       ).subscribe(data => {
         this.launches = data;
       })
-      this.year = navParams.data;
+      if(typeof navParams.data == "string"){
+        this.year = navParams.data;
+      }
+ 
+  
     }
     
 
