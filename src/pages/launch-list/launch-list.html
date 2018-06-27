@@ -9,7 +9,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Past launches</ion-title>
+    <ion-title>Past launches <span *ngIf='year > 1'>from {{year}}</span></ion-title>
   </ion-navbar>
 </ion-header>
 
