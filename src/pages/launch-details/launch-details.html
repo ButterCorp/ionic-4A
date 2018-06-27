@@ -32,14 +32,14 @@
 
         <ion-item>
             Launch Year
-            <button ion-button outline item-end icon-left>
+            <button ion-button outline item-end icon-left  (click)="goToLaunches(launch?.launch_year)">
                 {{launch.launch_year}}
             </button>
         </ion-item>
 
         <ion-item>
             Rocket Name
-            <button ion-button outline item-end icon-left>
+            <button ion-button outline item-end icon-left  (click)="goToDetail(launch?.rocket)">
                 {{launch.rocket.rocket_name}}
             </button>
         </ion-item>

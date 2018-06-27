@@ -24,7 +24,7 @@ export class RocketListPage {
     public navParams: NavParams,
     private spacexApi: SpacexApiProvider
   ) {
-    spacexApi.getAllRockets().subscribe(data => {
+    this.spacexApi.getAllRockets().subscribe(data => {
       this.rockets = data;
     });
   }
@@ -34,7 +34,6 @@ export class RocketListPage {
   }
   goToDetail(rocket: any) {
     this.navCtrl.push(RocketDetailsPage, rocket);
-    console.log(rocket);
   }
 
 }

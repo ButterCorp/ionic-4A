@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{rocket.name}}</ion-title>
+    <ion-title>{{rocket?.name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,44 +17,44 @@
 
   <img src="http://pngimg.com/uploads/futurama/futurama_PNG102.png"/>
 
-  <h2>{{rocket.name}}</h2>
+  <h2>{{rocket?.name}}</h2>
 
-  <p>{{rocket.description}}</p>
+  <p>{{rocket?.description}}</p>
 
   <ion-list>
 
       <ion-item>
         Active
         <button ion-button outline item-end icon-left>
-            {{ (rocket.active) ? 'Yes' : 'No' }}
+            {{ (rocket?.active) ? 'Yes' : 'No' }}
         </button>
       </ion-item>
 
       <ion-item>
           Cost per launch
           <button ion-button outline item-end icon-left>
-              {{rocket.cost_per_launch}}$
+              {{rocket?.cost_per_launch}}$
           </button>
       </ion-item>
 
       <ion-item>
           First flight
           <button ion-button outline item-end icon-left>
-              {{rocket.first_flight}}
+              {{rocket?.first_flight}}
           </button>
       </ion-item>
 
       <ion-item>
           Country
           <button ion-button outline item-end icon-left>
-              {{rocket.country}}
+              {{rocket?.country}}
           </button>
       </ion-item>
 
       <ion-item>
           Dimension
           <button ion-button outline item-end icon-left>
-              {{rocket.height.meters}}m x {{rocket.diameter.meters}}m for {{rocket.mass.kg}}kg
+              {{rocket.height?.meters}}m x {{rocket.diameter?.meters}}m for {{rocket.mass?.kg}}kg
           </button>
       </ion-item>
 
