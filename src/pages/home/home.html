@@ -1,3 +1,4 @@
+
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
@@ -5,65 +6,90 @@
     </button>
     <ion-title>SpaceX</ion-title>
   </ion-navbar>
+  <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="pet">
+        <ion-segment-button value="pastlaunchs">
+          Past Launchs
+        </ion-segment-button>
+        <ion-segment-button value="nextlaunchs">
+          Next Launchs
+        </ion-segment-button>
+        <ion-segment-button value="upcominglaunchs">
+          Upcoming
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content padding>
-  <button ion-button color="light" navPush="LaunchListPage">All pasts launchs</button> <br>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Creative-Tail-rocket.svg/2000px-Creative-Tail-rocket.svg.png" alt="rocket" width="100px">
-  <h2>Next launch</h2>
-  <ion-card (click)="goToDetail(nextLaunch)">
-        <ion-badge right item-end>#{{nextLaunch?.flight_number}}</ion-badge>
-    <ion-card-content>
-      <ion-card-title>
-          {{nextLaunch?.mission_name}}
-      </ion-card-title>
-      <p>
-          {{nextLaunch?.rocket.rocket_name}} - {{nextLaunch?.launch_date_local}}
-      </p>
-    </ion-card-content>
+    <div [ngSwitch]="pet">
+      <ion-list *ngSwitchCase="'pastlaunchs'">
+      </ion-list>
+      <ion-list *ngSwitchCase="'nextlaunchs'">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Creative-Tail-rocket.svg/2000px-Creative-Tail-rocket.svg.png" alt="rocket" width="100px">
+            <h2>Next launch</h2>
+            <ion-card (click)="goToDetail(nextLaunch)">
+                  <ion-badge right item-end>#{{nextLaunch?.flight_number}}</ion-badge>
+              <ion-card-content>
+                <ion-card-title>
+                    {{nextLaunch?.mission_name}}
+                </ion-card-title>
+                <p>
+                    {{nextLaunch?.rocket.rocket_name}} - {{nextLaunch?.launch_date_local}}
+                </p>
+              </ion-card-content>
 
-    <ion-row no-padding>
-        <ion-col>
+              <ion-row no-padding>
+                  <ion-col>
 
-        </ion-col>
-        <ion-col text-center>
-          <button ion-button clear small color="primary" icon-start>
-              <ion-icon name="menu"></ion-icon>
-            More infos
-          </button>
-        </ion-col>
-        <ion-col text-right>
+                  </ion-col>
+                  <ion-col text-center>
+                    <button ion-button clear small color="primary" icon-start>
+                        <ion-icon name="menu"></ion-icon>
+                      More infos
+                    </button>
+                  </ion-col>
+                  <ion-col text-right>
 
-        </ion-col>
-      </ion-row>
-  </ion-card>
-
-  <h2>Upcomming launches</h2>
-  <ion-card *ngFor="let launch of nextLaunches" (click)="goToDetail(launch)">
-      <ion-card-content>
-      <ion-badge item-end>#{{launch?.flight_number}}</ion-badge>
-        <ion-card-title>
-            {{launch?.mission_name}}
-        </ion-card-title>
-        <p>
-            {{launch?.rocket.rocket_name}} - {{launch?.launch_date_local}}
-        </p>
-      </ion-card-content>
+                  </ion-col>
+                </ion-row>
+            </ion-card>
+      </ion-list>
   
-      <ion-row no-padding>
-          <ion-col>
+      <ion-list *ngSwitchCase="'upcominglaunchs'">
+          <h2>Upcomming launches</h2>
+          <ion-card *ngFor="let launch of nextLaunches" (click)="goToDetail(launch)">
+              <ion-card-content>
+              <ion-badge item-end>#{{launch?.flight_number}}</ion-badge>
+                <ion-card-title>
+                    {{launch?.mission_name}}
+                </ion-card-title>
+                <p>
+                    {{launch?.rocket.rocket_name}} - {{launch?.launch_date_local}}
+                </p>
+              </ion-card-content>
+          
+              <ion-row no-padding>
+                  <ion-col>
+        
+                  </ion-col>
+                  <ion-col text-center>
+                    <button ion-button clear small color="primary" icon-start>
+                      <ion-icon name="menu"></ion-icon>
+                      More infos
+                    </button>
+                  </ion-col>
+                  <ion-col text-right>
+        
+                  </ion-col>
+                </ion-row>
+            </ion-card>
+      </ion-list>
+    </div>
+  </ion-content>
 
-          </ion-col>
-          <ion-col text-center>
-            <button ion-button clear small color="primary" icon-start>
-              <ion-icon name="menu"></ion-icon>
-              More infos
-            </button>
-          </ion-col>
-          <ion-col text-right>
+  <!-- <button ion-button color="light" navPush="LaunchListPage">All pasts launchs</button> <br> -->
+  
 
-          </ion-col>
-        </ion-row>
-    </ion-card>
-
-</ion-content>

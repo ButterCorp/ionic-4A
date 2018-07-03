@@ -21,6 +21,9 @@ export class HomePage {
     this.getNextLaunches();
   }
 
+  pet: string = "nextlaunchs";
+  isAndroid: boolean = false;
+
   getNextLaunch(): void {
     this.spacexApi.getNextLaunch()
         .subscribe(data => { this.nextLaunch = data; });
@@ -34,4 +37,8 @@ export class HomePage {
   goToDetail(launch: ILaunch): void {
     this.navCtrl.push(LaunchDetailsPage, launch);
   }
+ 
+
+  
+
 }
