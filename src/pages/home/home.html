@@ -9,13 +9,13 @@
   <ion-toolbar no-border-top>
       <ion-segment [(ngModel)]="pet">
         <ion-segment-button value="pastlaunchs">
-          Past Launchs
+          Past launches
         </ion-segment-button>
         <ion-segment-button value="nextlaunchs">
-          Next Launchs
+          Next launch
         </ion-segment-button>
         <ion-segment-button value="upcominglaunchs">
-          Upcoming
+          Upcoming launches
         </ion-segment-button>
       </ion-segment>
     </ion-toolbar>
@@ -26,6 +26,38 @@
 <ion-content padding>
     <div [ngSwitch]="pet">
       <ion-list *ngSwitchCase="'pastlaunchs'">
+          <h2>Past launches</h2>
+          <ion-card *ngFor="let launch of pastLaunches.reverse()">
+              <img src="{{launch?.links.mission_patch_small}}" (click)="goToDetail(launch)"/>
+              <ion-card-content>
+              <ion-badge item-end>#{{launch?.flight_number}}</ion-badge>
+                <ion-card-title>
+                    {{launch?.mission_name}}
+                </ion-card-title>
+                <p>
+                    {{launch?.rocket.rocket_name}} - {{launch?.launch_date_local}}
+                </p>
+              </ion-card-content>
+          
+              <ion-row no-padding>
+                  <ion-col>
+                      <button (click)="redirect(launch.links.article_link)" ion-button clear small color="dark" icon-start>                    
+                         <ion-icon name="book"></ion-icon>
+                      </button>
+                  </ion-col>
+                  <ion-col text-center>
+                    <button ion-button clear small color="primary" icon-start (click)="goToDetail(launch)">
+                      <ion-icon name="menu"></ion-icon>
+                      More infos
+                    </button>
+                  </ion-col>
+                  <ion-col text-right>
+                      <button (click)="redirect(launch.links.video_link)" ion-button clear small color="danger" icon-start>                    
+                          <ion-icon name="logo-youtube"></ion-icon>
+                        </button>
+                  </ion-col>
+                </ion-row>
+            </ion-card>
       </ion-list>
       <ion-list *ngSwitchCase="'nextlaunchs'">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Creative-Tail-rocket.svg/2000px-Creative-Tail-rocket.svg.png" alt="rocket" width="100px">

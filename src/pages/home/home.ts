@@ -12,6 +12,7 @@ export class HomePage {
 
   nextLaunch: ILaunch;
   nextLaunches: ILaunch[];
+  pastLaunches: ILaunch[];
 
   constructor(
     public navCtrl: NavController,
@@ -19,6 +20,7 @@ export class HomePage {
   ) {
     this.getNextLaunch();
     this.getNextLaunches();
+    this.getPastLaunches();
   }
 
   pet: string = "nextlaunchs";
@@ -34,11 +36,18 @@ export class HomePage {
         .subscribe( data => { this.nextLaunches = data; });
   }
 
+  getPastLaunches(): void {
+    this.spacexApi.getPastLaunches()
+        .subscribe( data => { this.pastLaunches = data });
+  }
+
   goToDetail(launch: ILaunch): void {
     this.navCtrl.push(LaunchDetailsPage, launch);
   }
  
-
+  redirect(link: string):void {
+    window.open(link, '_system')
+  }
   
 
 }
