@@ -16,6 +16,7 @@ import { LaunchpadPage } from '../pages/launchpad/launchpad';
 import { RocketListPage } from '../pages/rocket-list/rocket-list';
 import { RocketDetailsPage } from '../pages/rocket-details/rocket-details';
 import { LaunchpadDetailPage } from '../pages/launchpad-detail/launchpad-detail';
+import { AboutPage } from '../pages/about/about';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LaunchpadDetailPage } from '../pages/launchpad-detail/launchpad-detail'
     LaunchpadPage,
     RocketListPage,
     RocketDetailsPage,
-    LaunchpadDetailPage
+    LaunchpadDetailPage,
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { LaunchpadDetailPage } from '../pages/launchpad-detail/launchpad-detail'
     LaunchpadPage,
     RocketListPage,
     RocketDetailsPage,
-    LaunchpadDetailPage
+    LaunchpadDetailPage,
+    AboutPage
   ],
   providers: [
     StatusBar,
