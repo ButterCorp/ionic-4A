@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>launchpad-detail</ion-title>
+    <ion-title>{{launchpad.full_name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,6 +16,8 @@
 <ion-content padding>
 
   <h2 *ngIf="launchpad.full_name">{{launchpad.full_name}}</h2>
+
+  <p> {{ launchpad.details }} </p>
 
   <ion-list>
       <ion-item *ngIf="launchpad.status">
@@ -28,7 +30,7 @@
       <ion-item *ngIf="launchpad.location">
          Location
           <button ion-button outline item-end icon-left>
-              {{launchpad.location.name}}$
+              {{launchpad.location.region}}
           </button>
       </ion-item>
 

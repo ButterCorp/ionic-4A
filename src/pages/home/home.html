@@ -63,6 +63,7 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Creative-Tail-rocket.svg/2000px-Creative-Tail-rocket.svg.png" alt="rocket" width="100px">
             <h2>Next launch</h2>
             <ion-card (click)="goToDetail(nextLaunch)">
+                <img src="https://www.photospng.com/uploads/spacex-logo-icon.png" (click)="goToDetail(nextLaunch)"/>
                   <ion-badge right item-end>#{{nextLaunch?.flight_number}}</ion-badge>
               <ion-card-content>
                 <ion-card-title>
@@ -93,6 +94,7 @@
       <ion-list *ngSwitchCase="'upcominglaunchs'">
           <h2>Upcomming launches</h2>
           <ion-card *ngFor="let launch of nextLaunches" (click)="goToDetail(launch)">
+              <img src="https://www.photospng.com/uploads/spacex-logo-icon.png" (click)="goToDetail(nextLaunch)"/>
               <ion-card-content>
               <ion-badge item-end>#{{launch?.flight_number}}</ion-badge>
                 <ion-card-title>

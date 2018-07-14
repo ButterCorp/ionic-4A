@@ -15,11 +15,13 @@
 
 <ion-content padding>
 
-    <img src="{{launch.links.mission_patch_small}}"/>
+    <img *ngIf="launch.links.mission_patch_small" src="{{launch.links.mission_patch_small}}"/>
+    <img *ngIf="!launch.links.mission_patch_small" src="https://vignette.wikia.nocookie.net/logopedia/images/9/9b/SpaceX_Icon.png/revision/latest?cb=20170915153013">
 
     <h2>{{launch.mission_name}}</h2>
 
-    <p>{{launch.details}}</p>
+    <p *ngIf="launch.details">{{launch.details}}</p>
+    <p *ngIf="!launch.details">Details of this launch comming soon</p>
 
     <ion-list>
 
@@ -27,6 +29,13 @@
           Flight number
           <button ion-button outline item-end icon-left>
               {{launch.flight_number}}
+          </button>
+        </ion-item>
+
+        <ion-item *ngIf="launch.launch_success">
+          Launch success 
+          <button ion-button outline item-end icon-left>
+              {{ (launch.launch_success) ? 'Yes' : 'No' }}
           </button>
         </ion-item>
 
@@ -46,7 +55,7 @@
 
         <ion-item>
             Launch site
-            <button ion-button outline item-end icon-left (click)="goToLaunchpad(launch.launch_site.site_id)">
+            <button ion-button outline item-end icon-left (click)="goToLaunchpad(launch?.launch_site.site_id)">
                 {{launch.launch_site.site_name}}
             </button>
         </ion-item>

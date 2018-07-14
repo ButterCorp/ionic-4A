@@ -23,10 +23,13 @@ export class LaunchpadDetailPage {
     private spacexApi: SpacexApiProvider
   ) {
     this.launchpad = this.navParams.data;
+
     if(typeof this.launchpad == "string"){
       spacexApi.getLaunchpad(this.launchpad).subscribe(dataSpaceX => {
-        this.launchpad = dataSpaceX;      });
+        this.launchpad = dataSpaceX;      
+      });
     }
+    
   }
 
   ionViewDidLoad() {
