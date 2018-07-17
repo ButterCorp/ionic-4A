@@ -22,13 +22,12 @@ export class LaunchListPage {
   private searchQuery: string = '';
   private launches_filter: any;
   items: string[];
+  allLaunchesCount:number;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     private spacexApi: SpacexApiProvider,
-    
-
   ) {
       spacexApi.getAllLaunches(
         {
@@ -36,6 +35,7 @@ export class LaunchListPage {
         }
       ).subscribe(data => {
         this.launches = data;
+        this.allLaunchesCount = data.length;
         this.launches_filter = this.launches;
       })
       if(typeof navParams.data == "string"){

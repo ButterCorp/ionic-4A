@@ -17,6 +17,7 @@ import { LaunchpadDetailPage } from '../launchpad-detail/launchpad-detail';
 export class LaunchpadPage {
 
   launchpads: any;
+  allLaunchpadsCount: number;
 
   constructor(
     public navCtrl: NavController, 
@@ -31,7 +32,8 @@ export class LaunchpadPage {
 
   getAllLaunchpads(): void {
     this.spacexApi.getAllLaunchpads()
-        .subscribe(data => { this.launchpads = data; });
+        .subscribe(data => { this.launchpads = data;
+                             this.allLaunchpadsCount = data.length; });
   }
 
   goToLaunchpadDetail(launchpad): void {

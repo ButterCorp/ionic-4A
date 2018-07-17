@@ -16,6 +16,8 @@ export class HomePage {
   launchTime: any;
   interval: any;
   launchTimeCountDown: any;
+  pastLaunchesCount: number;
+  upcommingLaunchesCount: number;
 
   constructor(
     public navCtrl: NavController,
@@ -24,6 +26,8 @@ export class HomePage {
     this.getNextLaunch();
     this.getNextLaunches();
     this.getPastLaunches();
+
+    this.pastLaunchesCount = 0;
   }
 
   pet: string = "nextlaunchs";
@@ -40,12 +44,14 @@ export class HomePage {
 
   getNextLaunches(): void {
     this.spacexApi.getNextLaunches()
-        .subscribe( data => { this.nextLaunches = data; });
+        .subscribe( data => { this.nextLaunches = data;
+                              this.upcommingLaunchesCount = data.length });
   }
 
   getPastLaunches(): void {
     this.spacexApi.getPastLaunches()
-        .subscribe( data => { this.pastLaunches = data });
+        .subscribe( data => { this.pastLaunches = data;
+                              this.pastLaunchesCount = data.length });
   }
 
   goToDetail(launch: ILaunch): void {

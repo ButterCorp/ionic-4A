@@ -18,14 +18,20 @@ import { RocketDetailsPage } from '../rocket-details/rocket-details';
 })
 export class RocketListPage {
   public rockets: any;
+  rocketsCount: number;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private spacexApi: SpacexApiProvider
   ) {
+    this.getAllRockets();
+  }
+
+  getAllRockets(): void {
     this.spacexApi.getAllRockets().subscribe(data => {
       this.rockets = data;
+      this.rocketsCount = data.length;
     });
   }
 
