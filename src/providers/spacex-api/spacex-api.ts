@@ -44,11 +44,21 @@ export class SpacexApiProvider {
     return this.http.get<ILaunch[]>(endpointUrl);
   }
 
+  getLaunchesFromRocket(params: any): Observable<ILaunch[]>{
+    const endpointUrl = `${this.baseUrl}/launches/all`;
+    
+    const httpParams = Object.getOwnPropertyNames(params)
+      .reduce((p,key) => p.set(key, params[key]), new HttpParams());
+
+    return this.http.get<ILaunch[]>(endpointUrl, {params: httpParams});
+  }
+
   getAllLaunchpads(): Observable<any> {
     const endpointUrl = `${this.baseUrl}/launchpads`;
     
     return this.http.get<any>(endpointUrl);
   }
+
   getLaunchpad(launchpadId: string): Observable<any> {
     const endpointUrl = `${this.baseUrl}/launchpads/${launchpadId}`;
     return this.http.get<any>(endpointUrl);
@@ -60,6 +70,7 @@ export class SpacexApiProvider {
   }
   getRocket(rocketId: string): Observable<any> {
     const endpointUrl = `${this.baseUrl}/rockets/${rocketId}`;
+    
     return this.http.get<any>(endpointUrl);
   }
 

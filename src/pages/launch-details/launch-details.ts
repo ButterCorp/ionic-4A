@@ -31,6 +31,7 @@ export class LaunchDetailsPage {
   }
 
   goToDetail(rocket: any) {
+    console.log(" >>>>>>>>>> " + rocket.rocket_id)
     this.navCtrl.push(RocketDetailsPage, rocket.rocket_id);
   }
 

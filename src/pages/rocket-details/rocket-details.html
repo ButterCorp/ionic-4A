@@ -25,39 +25,74 @@
 
       <ion-item>
         Active
-        <button ion-button outline item-end icon-left>
+        <button ion-button outline item-end icon-left color="dark">
             {{ (rocket?.active) ? 'Yes' : 'No' }}
         </button>
       </ion-item>
 
       <ion-item>
           Cost per launch
-          <button ion-button outline item-end icon-left>
+          <button ion-button outline item-end icon-left color="dark">
               {{rocket?.cost_per_launch}}$
           </button>
       </ion-item>
 
       <ion-item>
           First flight
-          <button ion-button outline item-end icon-left>
+          <button ion-button outline item-end icon-left color="dark">
               {{rocket?.first_flight}}
           </button>
       </ion-item>
 
       <ion-item>
           Country
-          <button ion-button outline item-end icon-left>
+          <button ion-button outline item-end icon-left color="dark">
               {{rocket?.country}}
           </button>
       </ion-item>
 
       <ion-item>
           Dimension
-          <button ion-button outline item-end icon-left>
+          <button ion-button outline item-end icon-left color="dark">
               {{rocket.height?.meters}}m x {{rocket.diameter?.meters}}m for {{rocket.mass?.kg}}kg
           </button>
       </ion-item>
 
     </ion-list>
+
+    <ion-scroll scrollX="true" direction="x">
+            <ion-card *ngFor="let launch of launches">
+                    <img src="{{launch?.links.mission_patch_small}}" (click)="goToDetail(launch)" style="width:100px;"/>
+                    <ion-card-content>
+                    <ion-badge item-end>#{{launch?.flight_number}}</ion-badge>
+                      <ion-card-title>
+                          {{launch?.mission_name}}
+                      </ion-card-title>
+                      <p>
+                          {{launch?.rocket.rocket_name}} - {{launch?.launch_date_local| date:'fullDate'}}
+      
+                      </p>
+                    </ion-card-content>
+                
+                    <ion-row no-padding>
+                        <ion-col>
+                            <button (click)="redirect(launch.links.article_link)" ion-button clear small color="dark" icon-start>                    
+                               <ion-icon name="book"></ion-icon>
+                            </button>
+                        </ion-col>
+                        <ion-col text-center>
+                          <button ion-button clear small color="primary" icon-start (click)="goToDetail(launch)">
+                            <ion-icon name="menu"></ion-icon>
+                            More infos
+                          </button>
+                        </ion-col>
+                        <ion-col text-right>
+                            <button (click)="redirect(launch.links.video_link)" ion-button clear small color="danger" icon-start>                    
+                                <ion-icon name="logo-youtube"></ion-icon>
+                              </button>
+                        </ion-col>
+                      </ion-row>
+            </ion-card>
+          </ion-scroll>
 
 </ion-content>

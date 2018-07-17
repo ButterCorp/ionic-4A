@@ -19,6 +19,7 @@ import { LaunchDetailsPage } from '../launch-details/launch-details';
 export class LaunchListPage {
   private launches: any;
   private year: any;
+  private active: any;
   private searchQuery: string = '';
   private launches_filter: any;
   items: string[];
@@ -29,9 +30,12 @@ export class LaunchListPage {
     public navParams: NavParams, 
     private spacexApi: SpacexApiProvider,
   ) {
+      console.log(navParams.data);
+
       spacexApi.getAllLaunches(
         {
-          order: 'desc', launch_year: (typeof navParams.data == "string")?navParams.data:""
+          order: 'desc', launch_year: ( typeof navParams.data == "string" && navParams.data.charAt(0) == "2" ) ? navParams.data : "", 
+          launch_success: ( typeof navParams.data == "string" && navParams.data.charAt(0) == "t" ) ? navParams.data : ""
         }
       ).subscribe(data => {
         this.launches = data;
@@ -39,9 +43,13 @@ export class LaunchListPage {
         this.launches_filter = this.launches;
       })
       if(typeof navParams.data == "string"){
-        this.year = navParams.data;
+        if ( navParams.data.charAt(0) == "2")
+          this.year = navParams.data;
+        if ( navParams.data.charAt(0) == "t")
+           this.active = navParams.data;
+        
       }
- 
+
     }
 
     initializeItems() {

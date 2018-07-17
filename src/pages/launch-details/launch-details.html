@@ -34,7 +34,7 @@
 
         <ion-item *ngIf="launch.launch_success">
           Launch success 
-          <button ion-button outline item-end icon-left>
+          <button ion-button outline item-end icon-left (click)="goToLaunches((launch.launch_success) ? 'true' : 'false')">
               {{ (launch.launch_success) ? 'Yes' : 'No' }}
           </button>
         </ion-item>
