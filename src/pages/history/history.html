@@ -20,5 +20,35 @@
     <p>Date: {{histo.event_date_utc}}</p>
     <p>Flight number: {{histo.flight_number}}</p>
     <p>Details : {{histo.details}}</p>
+    
+    <ion-row>
+      <ion-col align-self-center text-center *ngIf="histo.links.wikipedia">
+        <button ion-button icon-left clear small>
+          <ion-icon name="albums"></ion-icon>
+          <div>
+            <a href="{{ histo.links.wikipedia}}">Wikipedia</a>
+          </div>
+        </button>
+      </ion-col>
+
+      <ion-col align-self-center text-center *ngIf="histo.links.article">
+        <button ion-button icon-left clear small>
+          <ion-icon name="book"></ion-icon>
+          <div>
+            <a href="{{ histo.links.article}}">Article</a>
+          </div>
+        </button>
+      </ion-col>
+
+      <ion-col align-self-center text-center *ngIf="histo.links.reddit">
+        <button ion-button icon-left clear small>
+          <ion-icon name="logo-reddit"></ion-icon>
+          <div>
+            <a href="{{ histo.links.reddit}}">Reddit</a>
+          </div>
+        </button>
+      </ion-col>
+    </ion-row>
+
   </ion-card>
 </ion-content>
