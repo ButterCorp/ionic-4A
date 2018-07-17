@@ -38,6 +38,12 @@ export class SpacexApiProvider {
     return this.http.get<ILaunch[]>(endpointUrl);
   }
 
+  getPastLaunches(): Observable<ILaunch[]> {
+    const endpointUrl = `${this.baseUrl}/launches`;
+
+    return this.http.get<ILaunch[]>(endpointUrl);
+  }
+
   getAllLaunchpads(): Observable<any> {
     const endpointUrl = `${this.baseUrl}/launchpads`;
     
