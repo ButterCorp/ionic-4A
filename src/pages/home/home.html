@@ -10,8 +10,6 @@
 <ion-content padding>
   <button ion-button color="light" navPush="LaunchListPage">All pasts launchs</button> <br>
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Creative-Tail-rocket.svg/2000px-Creative-Tail-rocket.svg.png" alt="rocket" width="100px">
-  <p>Compte à rebours : {{nextLaunch?.launch_date_unix}}</p>
-
 
     <div class="spinner" *ngIf="launchTimeCountDown === undefined">
       <ion-spinner color="primary" name='crescent'></ion-spinner>
@@ -41,18 +39,9 @@
         </ion-col>
       </ion-row>
   
-      <ion-row text-center>
-        <ion-col>
-          <button ion-button color="light" round (click)="seeLaunchDetails()">See Details</button>
-        </ion-col>
-      </ion-row>
-  
+
     </div>
  
-
-
-  <p id="demo"></p>
-  <h2>Next launch</h2>
   <ion-card (click)="goToDetail(nextLaunch)">
         <ion-badge right item-end>#{{nextLaunch?.flight_number}}</ion-badge>
     <ion-card-content>
