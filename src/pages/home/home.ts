@@ -38,7 +38,4 @@ export class HomePage {
     this.navCtrl.push(LaunchDetailsPage, launch);
   }
  
-
-  
-
 }

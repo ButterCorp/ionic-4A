@@ -1,3 +1,113 @@
 page-home {
  text-align: center;
 }
+
+
+
+
+
+////////////////////////////////////////////////////// Custom Front Design \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+.content-md {
+    background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+}
+
+
+.list {
+    margin: 5px 0 32px;
+}
+.toolbar-title-md {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    /* color: #424242; */
+    /* display: table; */
+    margin: 0 -12px;
+    /* font-family: "Roboto Slab"; */
+    font-weight: 350;
+    font-size: 30px;
+    background: linear-gradient(330deg, #cc6b3d 0%, #e07352 25%, #e23c6a 50%, #dc8733 75%, #e05252 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 40px;
+}
+
+
+.segment-md .segment-button {
+    color: #e88c26;
+  }
+
+
+.segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+    border-color: #e88c26;
+  }
+
+
+  .bar-button-default-md,
+.bar-button-clear-md-default,
+.bar-button-md-default {
+  color: #e88c26;
+}
+
+.badge-md {
+    background-color: #e24067;
+}
+
+.button-clear-md-primary {
+    color: #e24067;
+}
+
+.card-md {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+// IOS
+
+.content-ios {
+    background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+}
+
+.list-ios {
+    margin: 5px 0 32px;
+}
+.toolbar-title-ios {
+    margin: 0 auto;
+    font-weight: 350;
+    font-size: 30px;
+    background: linear-gradient(330deg, #cc6b3d 0%, #e07352 25%, #e23c6a 50%, #dc8733 75%, #e05252 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 40px;
+}
+
+  .segment-ios .segment-button.segment-activated {
+    background-color: #e88c26;
+  }
+
+  .segment-ios .segment-button {
+    border-color: #e88c26;
+    color: #e88c26;
+ 
+  }
+
+  .bar-button-default-ios,
+.bar-button-default.bar-button-ios-default,
+.bar-button-clear-ios-default {
+  color: #e88c26;
+  background-color: transparent;
+}
+
+.badge-ios {
+    background-color: #e24067;
+}
+
+.button-clear-ios-primary {
+    color: #e24067;
+}
+
+.card-ios {
+    padding: 10px;
+    border-radius: 10px;
+}
+
