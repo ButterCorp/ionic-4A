@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 
 /**
  * Generated class for the HistoryPage page.
@@ -15,11 +16,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class HistoryPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private history: any;
+
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private spacexApi: SpacexApiProvider)
+  {
+    this.getHistory();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HistoryPage');
+  }
+
+  getHistory() {
+    this.spacexApi.getHistory().subscribe(data => {
+      this.history = data;
+      console.log(this.history);
+    })
   }
 
 }
