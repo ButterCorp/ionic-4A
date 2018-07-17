@@ -27,7 +27,7 @@
 
         <ion-item>
           Flight number
-          <button ion-button outline item-end icon-left>
+          <button ion-button outline item-end icon-left ion-button color="dark">
               {{launch.flight_number}}
           </button>
         </ion-item>
@@ -44,6 +44,14 @@
             <button ion-button outline item-end icon-left  (click)="goToLaunches(launch?.launch_year)">
                 {{launch.launch_year}}
             </button>
+        </ion-item>
+
+        <ion-item>
+            Launch Full date 
+            <button ion-button outline item-end icon-left ion-button color="dark">
+                {{launch.launch_date_local | date:'shortDate'}}
+            </button>
+            
         </ion-item>
 
         <ion-item>

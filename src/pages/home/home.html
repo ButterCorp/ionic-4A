@@ -65,7 +65,8 @@
                     {{launch?.mission_name}}
                 </ion-card-title>
                 <p>
-                    {{launch?.rocket.rocket_name}} - {{launch?.launch_date_local}}
+                    {{launch?.rocket.rocket_name}} - {{launch?.launch_date_local| date:'fullDate'}}
+
                 </p>
               </ion-card-content>
           
@@ -101,7 +102,7 @@
                     {{nextLaunch?.mission_name}}
                 </ion-card-title>
                 <p>
-                    {{nextLaunch?.rocket.rocket_name}} - {{nextLaunch?.launch_date_local}}
+                    {{nextLaunch?.rocket.rocket_name}} - {{nextLaunch?.launch_date_local| date:'fullDate'}}
                 </p>
               </ion-card-content>
 
@@ -132,7 +133,7 @@
                     {{launch?.mission_name}}
                 </ion-card-title>
                 <p>
-                    {{launch?.rocket.rocket_name}} - {{launch?.launch_date_local}}
+                    {{launch?.rocket.rocket_name}} - {{launch?.launch_date_local| date:'fullDate'}}
                 </p>
               </ion-card-content>
           
