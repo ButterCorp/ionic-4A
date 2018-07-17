@@ -7,31 +7,42 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>launchpad-detail</ion-title>
+    <ion-title>{{launchpad.full_name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content class="card-background-page">
+<ion-content padding>
 
-  <ion-card>
-      <img src="http://www.spacex.com/sites/spacex/files/styles/launch_site-small/public/vandenberg.jpg?itok=wOTtZa11"/>
-      <div class="card-title">{{launchpad.full_name}}</div>
-  </ion-card>
+  <h2 *ngIf="launchpad.full_name">{{launchpad.full_name}}</h2>
 
-  <p style="padding: 20px"  >
-    {{ launchpad.details }}
-  </p>
+  <p> {{ launchpad.details }} </p>
 
   <ion-list>
-      <ion-item *ngFor="let rocket_name of launchpad.vehicles_launched">
-        <ion-thumbnail item-start>
-          <img src="http://pngimg.com/uploads/futurama/futurama_PNG102.png">
-        </ion-thumbnail>
-        <h2>{{rocket_name}}</h2>
-        <button ion-button clear item-end>View</button>
+      <ion-item *ngIf="launchpad.status">
+          <p>{{launchpad.status}}</p>
+        <button ion-button outline item-end icon-left>
+            {{ (launchpad.status == 'active') ? 'Yes' : 'No' }}
+        </button>
       </ion-item>
-    </ion-list>
 
+      <ion-item *ngIf="launchpad.location">
+         Location
+          <button ion-button outline item-end icon-left>
+              {{launchpad.location.region}}
+          </button>
+      </ion-item>
+
+      <ion-item *ngIf="launchpad.vehicles_launched">
+          Vehicles Launched
+          <div *ngFor="let vehicles of launchpad.vehicles_launched">
+              <button ion-button outline item-end icon-left>
+                  {{vehicles}}
+              </button>
+          </div>
+          
+      </ion-item>
+
+    </ion-list>
 </ion-content>
