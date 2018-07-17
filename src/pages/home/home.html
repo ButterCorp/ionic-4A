@@ -21,6 +21,52 @@
     </ion-toolbar>
 </ion-header>
 
+<ion-content padding>
+  <button ion-button color="light" navPush="LaunchListPage">All pasts launchs</button> <br>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Creative-Tail-rocket.svg/2000px-Creative-Tail-rocket.svg.png" alt="rocket" width="100px">
+
+    <div class="spinner" *ngIf="launchTimeCountDown === undefined">
+      <ion-spinner color="primary" name='crescent'></ion-spinner>
+    </div>
+    <div class="nextLaunchCountDown" *ngIf="launchTimeCountDown">
+      <h4 ion-text color="" text-center>Next Launch</h4>
+      <h2 ion-text color="" text-center> {{ nextLaunch.mission_name }} </h2>
+      <ion-row text-center class="countDown">
+        <ion-col>
+          <h1 ion-text color="">{{ launchTimeCountDown.day }}</h1>
+          <p ion-text color="">DAYS</p>
+        </ion-col>
+  
+        <ion-col>
+          <h1 ion-text color="">{{ launchTimeCountDown.hour }}</h1>
+          <p ion-text color="">HOURS</p>
+        </ion-col>
+  
+        <ion-col>
+          <h1 ion-text color="">{{ launchTimeCountDown.minute }}</h1>
+          <p ion-text color="">MINUTES</p>
+        </ion-col>
+  
+        <ion-col>
+          <h1 ion-text color="">{{ launchTimeCountDown.seconds }}</h1>
+          <p ion-text color="">SECONDS</p>
+        </ion-col>
+      </ion-row>
+  
+
+    </div>
+ 
+  <ion-card (click)="goToDetail(nextLaunch)">
+        <ion-badge right item-end>#{{nextLaunch?.flight_number}}</ion-badge>
+    <ion-card-content>
+      <ion-card-title>
+          {{nextLaunch?.mission_name}}
+      </ion-card-title>
+      <p>
+          {{nextLaunch?.rocket.rocket_name}} - {{nextLaunch?.launch_date_local}}
+      </p>
+      
+    </ion-card-content>
 
 
 <ion-content padding>
@@ -132,4 +178,6 @@
   </ion-tabs>
   <!-- <button ion-button color="light" navPush="LaunchListPage">All pasts launchs</button> <br> -->
   
+
+</ion-content>
 
