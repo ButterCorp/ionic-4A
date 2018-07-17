@@ -16,10 +16,14 @@
 
 <ion-content padding>
   <ion-card *ngFor="let histo of history">
-    <p>Title: {{histo.title}}</p>
-    <p>Date: {{histo.event_date_utc}}</p>
-    <p>Flight number: {{histo.flight_number}}</p>
-    <p>Details : {{histo.details}}</p>
+    <ion-card-title>
+      {{histo.title}}
+    </ion-card-title>
+    <p>{{histo.event_date_utc|date: 'mediumDate'}}</p>
+    <div *ngIf="histo.flight_number">
+      <p>Flight number: {{histo.flight_number}}</p>
+    </div>
+    <p>{{histo.details}}</p>
     
     <ion-row>
       <ion-col align-self-center text-center *ngIf="histo.links.wikipedia">
