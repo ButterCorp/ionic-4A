@@ -17,6 +17,7 @@ import { RocketListPage } from '../pages/rocket-list/rocket-list';
 import { RocketDetailsPage } from '../pages/rocket-details/rocket-details';
 import { LaunchpadDetailPage } from '../pages/launchpad-detail/launchpad-detail';
 import { AboutPage } from '../pages/about/about';
+import { HistoryPage } from '../pages/history/history';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AboutPage } from '../pages/about/about';
     RocketListPage,
     RocketDetailsPage,
     LaunchpadDetailPage,
-    AboutPage
+    AboutPage,
+    HistoryPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { AboutPage } from '../pages/about/about';
     RocketListPage,
     RocketDetailsPage,
     LaunchpadDetailPage,
-    AboutPage
+    AboutPage,
+    HistoryPage
   ],
   providers: [
     StatusBar,

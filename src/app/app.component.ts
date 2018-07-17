@@ -8,6 +8,7 @@ import { LaunchListPage } from '../pages/launch-list/launch-list';
 import { LaunchpadPage } from '../pages/launchpad/launchpad';
 import { RocketListPage } from '../pages/rocket-list/rocket-list';
 import { AboutPage } from '../pages/about/about';
+import { HistoryPage } from '../pages/history/history';
 
 @Component({
   templateUrl: 'app.html'
@@ -28,7 +29,8 @@ export class MyApp {
       { title: 'Launches', component: LaunchListPage },
       { title: 'Launchpad', component: LaunchpadPage },
       { title: 'Rockets', component: RocketListPage },
-      { title: 'About SpaceX', component: AboutPage },      
+      { title: 'About SpaceX', component: AboutPage },    
+      { title: 'History', component: HistoryPage },  
     ];
 
   }
