@@ -60,6 +60,8 @@
 
     </ion-list>
 
+    <h2>All launches of {{ rocket.name }} </h2>
+
     <ion-scroll scrollX="true" direction="x">
             <ion-card *ngFor="let launch of launches">
                     <img src="{{launch?.links.mission_patch_small}}" (click)="goToDetail(launch)" style="width:100px;"/>
