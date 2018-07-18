@@ -1,3 +1,26 @@
 page-about {
+   
+}
 
+.about-block {
+    text-align: center;
+
+    h2{
+        color: #e88c26;
+        font: bold 35px/30px Rajdhani, sans-serif;
+        margin-top: 80px;
+    }
+
+    p{
+        font-size: 22px;
+        font-family: 'Rajdhani', sans-serif;
+    }
+}
+
+.item-md ion-avatar ion-img, .item-md ion-avatar img {
+    border-radius: 5%;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px; 
 }

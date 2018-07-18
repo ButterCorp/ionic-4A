@@ -9,13 +9,15 @@
   <ion-toolbar no-border-top>
       <ion-segment [(ngModel)]="pet">
         <ion-segment-button value="pastlaunchs">
-          Past launches
+            <ion-badge item-end>{{ pastLaunchesCount }}</ion-badge> <br>
+          Past launches 
         </ion-segment-button>
-        <ion-segment-button value="nextlaunchs">
+        <ion-segment-button class="tab-center" value="nextlaunchs">
           Next launch
         </ion-segment-button>
         <ion-segment-button value="upcominglaunchs">
-          Upcoming launches
+            <ion-badge item-end>{{ upcommingLaunchesCount }}</ion-badge> <br>
+          Upcoming
         </ion-segment-button>
       </ion-segment>
     </ion-toolbar>
@@ -23,40 +25,47 @@
 
 <ion-content padding>
 
-  <button ion-button color="light" navPush="LaunchListPage">All pasts launchs</button> <br>
-    <div class="spinner" *ngIf="launchTimeCountDown === undefined">
-      <ion-spinner color="primary" name='crescent'></ion-spinner>
-    </div>
-
-    <div class="nextLaunchCountDown" *ngIf="launchTimeCountDown">
-
-      <ion-row text-center class="countDown">
-        <ion-col>
-          <h1 ion-text color="">{{ launchTimeCountDown.day }}</h1>
-          <p ion-text color="">DAYS</p>
-        </ion-col>
-  
-        <ion-col>
-          <h1 ion-text color="">{{ launchTimeCountDown.hour }}</h1>
-          <p ion-text color="">HOURS</p>
-        </ion-col>
-  
-        <ion-col>
-          <h1 ion-text color="">{{ launchTimeCountDown.minute }}</h1>
-          <p ion-text color="">MINUTES</p>
-        </ion-col>
-  
-        <ion-col>
-          <h1 ion-text color="">{{ launchTimeCountDown.seconds }}</h1>
-          <p ion-text color="">SECONDS</p>
-        </ion-col>
-      </ion-row>
-    </div>
+  <!-- <button ion-button color="light" navPush="LaunchListPage">All pasts launchs</button> <br> -->
+    
  
 <ion-content padding>
     <div [ngSwitch]="pet">
-      <ion-list *ngSwitchCase="'pastlaunchs'">
-          <h2>Past launches {{ pastLaunchesCount }}</h2>
+      <ion-list class="scroll-none"  *ngSwitchCase="'pastlaunchs'">
+          <div class="next-block">
+              <h2>Next Launch  <br> IN</h2>
+
+              <div class="spinner" *ngIf="launchTimeCountDown === undefined">
+                  <ion-spinner color="primary" name='crescent'></ion-spinner>
+                </div>
+            
+                <div class="nextLaunchCountDown" *ngIf="launchTimeCountDown">
+            
+                  <ion-row text-center class="countDown">
+                    <ion-col>
+                      <h1 ion-text color numbers>{{ launchTimeCountDown.day }}</h1> 
+                      <p ion-text color>DAYS</p>
+                    </ion-col>
+               
+                    <ion-col>
+                      <h1 ion-text color numbers>{{ launchTimeCountDown.hour }}</h1>
+                      <p ion-text color>HOURS</p>
+                    </ion-col>
+              
+                    <ion-col>
+                      <h1 ion-text color numbers>{{ launchTimeCountDown.minute }}</h1>
+                      <p ion-text color>MINUTES</p>
+                    </ion-col>
+              
+                    <ion-col>
+                      <h1 ion-text color numbers>{{ launchTimeCountDown.seconds }}</h1>
+                      <p ion-text color>SECONDS</p>
+                    </ion-col>
+                  </ion-row>
+                </div>
+          </div>
+
+         
+
           <ion-card *ngFor="let launch of pastLaunches.reverse()">
               <img src="{{launch?.links.mission_patch_small}}" (click)="goToDetail(launch)"/>
               <ion-card-content>
@@ -91,9 +100,48 @@
             </ion-card>
       </ion-list>
 
-      <ion-list *ngSwitchCase="'nextlaunchs'">
+
+<!-- ********************************************************************************************************************************************** -->
+    
+
+      <ion-list scroll-none *ngSwitchCase="'nextlaunchs'">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Creative-Tail-rocket.svg/2000px-Creative-Tail-rocket.svg.png" alt="rocket" width="100px">
-            <h2>Next launch</h2>
+            
+            <div class="next-block">
+                <h2>Next Launch  <br> IN</h2>
+  
+                <div class="spinner" *ngIf="launchTimeCountDown === undefined">
+                    <ion-spinner color="primary" name='crescent'></ion-spinner>
+                  </div>
+              
+                  <div class="nextLaunchCountDown" *ngIf="launchTimeCountDown">
+              
+                    <ion-row text-center class="countDown">
+                      <ion-col>
+                        <h1 ion-text color numbers>{{ launchTimeCountDown.day }}</h1> 
+                        <p ion-text color>DAYS</p>
+                      </ion-col>
+                 
+                      <ion-col>
+                        <h1 ion-text color numbers>{{ launchTimeCountDown.hour }}</h1>
+                        <p ion-text color>HOURS</p>
+                      </ion-col>
+                
+                      <ion-col>
+                        <h1 ion-text color numbers>{{ launchTimeCountDown.minute }}</h1>
+                        <p ion-text color>MINUTES</p>
+                      </ion-col>
+                
+                      <ion-col>
+                        <h1 ion-text color numbers>{{ launchTimeCountDown.seconds }}</h1>
+                        <p ion-text color>SECONDS</p>
+                      </ion-col>
+                    </ion-row>
+                  </div>
+            </div>
+
+
+
             <ion-card (click)="goToDetail(nextLaunch)">
                 <img src="https://www.photospng.com/uploads/spacex-logo-icon.png" (click)="goToDetail(nextLaunch)"/>
                   <ion-badge right item-end>#{{nextLaunch?.flight_number}}</ion-badge>
@@ -123,8 +171,44 @@
             </ion-card>
       </ion-list>
   
-      <ion-list *ngSwitchCase="'upcominglaunchs'">
-          <h2>Upcomming launches {{ upcommingLaunchesCount }} </h2>
+
+      <!-- ********************************************************************************************************************************************** -->
+
+
+      <ion-list scroll-none *ngSwitchCase="'upcominglaunchs'">
+          <div class="next-block">
+              <h2>Next Launch  <br> IN</h2>
+
+              <div class="spinner" *ngIf="launchTimeCountDown === undefined">
+                  <ion-spinner color="primary" name='crescent'></ion-spinner>
+                </div>
+            
+                <div class="nextLaunchCountDown" *ngIf="launchTimeCountDown">
+            
+                  <ion-row text-center class="countDown">
+                    <ion-col>
+                      <h1 ion-text color class="numbers">{{ launchTimeCountDown.day }}</h1> 
+                      <p ion-text color>DAYS</p>
+                    </ion-col>
+               
+                    <ion-col>
+                      <h1 ion-text color class="numbers">{{ launchTimeCountDown.hour }}</h1>
+                      <p ion-text color>HOURS</p>
+                    </ion-col>
+              
+                    <ion-col>
+                      <h1 ion-text color class="numbers">{{ launchTimeCountDown.minute }}</h1>
+                      <p ion-text color>MINUTES</p>
+                    </ion-col>
+              
+                    <ion-col>
+                      <h1 ion-text color class="numbers">{{ launchTimeCountDown.seconds }}</h1>
+                      <p ion-text color>SECONDS</p>
+                    </ion-col>
+                  </ion-row>
+                </div>
+          </div>
+
           <ion-card *ngFor="let launch of nextLaunches" (click)="goToDetail(launch)">
               <img src="https://www.photospng.com/uploads/spacex-logo-icon.png" (click)="goToDetail(nextLaunch)"/>
               <ion-card-content>
