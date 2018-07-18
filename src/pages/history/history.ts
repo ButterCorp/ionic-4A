@@ -36,4 +36,8 @@ export class HistoryPage {
     })
   }
 
+  redirect(link: string):void {
+    window.open(link, '_system')
+  }
+
 }
