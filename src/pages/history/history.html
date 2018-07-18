@@ -1,0 +1,58 @@
+<!--
+  Generated template for the HistoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>History</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngFor="let histo of history">
+    <ion-card-title>
+      {{histo.title}}
+    </ion-card-title>
+    <p>{{histo.event_date_utc|date: 'mediumDate'}}</p>
+    <div *ngIf="histo.flight_number">
+      <p>Flight number: {{histo.flight_number}}</p>
+    </div>
+    <p>{{histo.details}}</p>
+    
+    <ion-row>
+      <ion-col align-self-center text-center *ngIf="histo.links.wikipedia">
+        <button ion-button icon-left clear small>
+          <ion-icon name="albums"></ion-icon>
+          <div>
+            <a href="{{ histo.links.wikipedia}}">Wikipedia</a>
+          </div>
+        </button>
+      </ion-col>
+
+      <ion-col align-self-center text-center *ngIf="histo.links.article">
+        <button ion-button icon-left clear small>
+          <ion-icon name="book"></ion-icon>
+          <div>
+            <a href="{{ histo.links.article}}">Article</a>
+          </div>
+        </button>
+      </ion-col>
+
+      <ion-col align-self-center text-center *ngIf="histo.links.reddit">
+        <button ion-button icon-left clear small>
+          <ion-icon name="logo-reddit"></ion-icon>
+          <div>
+            <a href="{{ histo.links.reddit}}">Reddit</a>
+          </div>
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+</ion-content>

@@ -74,6 +74,12 @@ export class SpacexApiProvider {
     return this.http.get<any>(endpointUrl);
   }
 
+  getHistory(): Observable<any[]>{
+    const endpointUrl = `${this.baseUrl}/info/history`;
+
+    return this.http.get<any[]>(endpointUrl);
+  }
+
   getInfo(): Observable<any> {
     const endpointUrl = `${this.baseUrl}/info`;
 
