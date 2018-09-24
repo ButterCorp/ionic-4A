@@ -5,10 +5,13 @@ We got all our data from the (SpaceX API](https://github.com/r-spacex/SpaceX-API
 
 
 # Install the App
-`` git clone https://github.com/ButterCorp/ionic-4A spaceX ``
-`` cd spaceX ``
-`` npm install ``
-`` ionic serve --lab ``
+```` git clone https://github.com/ButterCorp/ionic-4A spaceX ````
+
+```` cd spaceX ````
+
+```` npm install ````
+
+```` ionic serve --lab ````
 
 # Wanna join the ButterCorp Community? 
 
